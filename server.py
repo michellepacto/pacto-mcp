@@ -7,7 +7,10 @@ import httpx
 import base64
 import os
 
-mcp = FastMCP("github-updater")
+# Configura o host e porta corretos para o Render
+PORT = int(os.environ.get("PORT", 8000))
+
+mcp = FastMCP("github-updater", host="0.0.0.0", port=PORT)
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 REPO = os.environ.get("GITHUB_REPO", "michellepacto/Pacto_CRM")
